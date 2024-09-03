@@ -11,9 +11,10 @@ import Timer from "../Timer/timerComponent";
 import LosingPage from "../LosingPage/LosingPage";
 import Paused from "../PauseScreen/pauseScreen";
 import { useNavigate } from "react-router-dom";
+import React from 'react';
 
 
-const LevelOne = () => {
+const LevelOne = (): React.JSX.Element => {
   const [score, setScore] = useState(0);
   const [isRunning, setIsRunning] = useState(true);
   const [hearts, setHearts] = useState(3);
@@ -21,15 +22,15 @@ const LevelOne = () => {
   const [showExplosion, setShowExplosion] = useState(false);
   const [paused, setPaused] = useState(false);
   const navigate = useNavigate();
-
+ 
   
 
 
-  const scoreIncrease = () => {
+  const scoreIncrease = (): void => {
     setScore(score + 10); // Update score when points are earned
   };
 
-  const bombClick = () => {
+  const bombClick = (): void => {
     audioExplosion.play();
     if (hearts > 0) {
       setHearts(hearts - 1);
@@ -40,19 +41,19 @@ const LevelOne = () => {
     }
   };
 
-  const audioExplosion = new Audio(explosionSound);
+  const audioExplosion: HTMLAudioElement = new Audio(explosionSound);
 
-  const setPause = () => {
+  const setPause = (): void => {
     setPaused(true);
     setIsRunning(false);
   };
 
-  const continueGame = () => {
+  const continueGame = (): void => {
     setPaused(false);
     setIsRunning(true);
   };
 
-  const stopGame = () => {
+  const stopGame = (): void => {
     setIsRunning(false);
     setGameOver(true);
 

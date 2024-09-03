@@ -1,13 +1,20 @@
-import { useEffect, useState } from "react";
+import { Dispatch, useEffect, useState } from "react";
 import styles from "./LosingPage.module.css";
 import goBackMenu from "../../assets/icons/Go-back-menu.svg";
 import astronautFlying from "../../assets/images/austronaut-levitating.svg";
 import strongAlien from "../../assets/images/Strong-alien-moon.svg";
 import LevelOne from "../LevelOne/LevelOne"; // Import LevelOne component
+import React from "react";
+
+interface Props {
+  score: number
+}
+
+
 
 // eslint-disable-next-line react/prop-types
-export default function LosingPage({score}) {
-  const [confirmation, setConfirmation] = useState(false);
+export default function LosingPage({score}: Props): React.JSX.Element {
+  const [confirmation, setConfirmation]  = useState(false);
   const [showLevelOne, setShowLevelOne] = useState(false); // State to toggle between LoosingPage and LevelOne
   
   
@@ -24,7 +31,7 @@ export default function LosingPage({score}) {
   }, [confirmation]);
 
   
-  const handleGoBack = () => {
+  const handleGoBack = (): void => {
     window.location.href = "/levelOne";
     setShowLevelOne(true);
   };

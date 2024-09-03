@@ -4,7 +4,14 @@ import alien from '../../assets/images/alien-play-game.svg';
 import bomb from '../../assets/images/Bomb-gameplay.svg';
 import React, { useState, useEffect, useCallback } from 'react';
 
-const AlienMole = ({ alienId, onAlienClick, onBombClick }) => {
+interface Props {
+    alienId: string,
+    onAlienClick: () => void,
+    onBombClick: () => void
+
+}
+
+const AlienMole = ({ alienId, onAlienClick, onBombClick }: Props) => {
     const [isVisible, setIsVisible] = useState(false);
     const [isAlien, setIsAlien] = useState(true); 
 
@@ -42,7 +49,7 @@ const AlienMole = ({ alienId, onAlienClick, onBombClick }) => {
         return () => clearTimeout(timer);
     }, [isVisible, isAlien]); 
 
-    const getRandomDelay = (min, max) => {
+    const getRandomDelay = (min: number, max: number) => {
         return Math.floor(Math.random() * (max - min + 1) + min);
     };
 

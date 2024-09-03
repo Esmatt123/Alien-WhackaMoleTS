@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import clickButton from '../../../public/music/buttonclick.wav'; 
 
-export default function MainButton({ name }) {
-    const btnClass = 'btn';
-    let btnName = '';
-    let btnBoxName = '';
+interface Props {
+    name: string
+}
+
+export default function MainButton({ name }: Props): React.JSX.Element {
+    const btnClass: string = 'btn';
+    let btnName: string = '';
+    let btnBoxName: string = '';
     const [isPlaying, setIsPlaying] = useState(false);
     
     switch (name) {
@@ -19,7 +23,7 @@ export default function MainButton({ name }) {
             btnName = '';
     }
 
-    const handleClick = () => {
+    const handleClick = (): void => {
         if (!isPlaying) {
             const audio = new Audio(clickButton);
             audio.play();
