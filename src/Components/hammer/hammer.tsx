@@ -2,13 +2,14 @@ import { useRef, useEffect, useState } from 'react';
 import hammer from '../../assets/images/Hammer-game.svg';
 import hammercss from './hammer.module.css';
 import clickSound from '../../../public/music/hammer-whack.mp3';
+import React from 'react';
 
-const Hammer = () => {
-    const cursorRef = useRef(null);
-    const clickRef = useRef(null);
-    const audioRef = useRef(new Audio(clickSound));
-    const [isPlaying, setIsPlaying] = useState(false);
-    const hammerImageRef = useRef(null); 
+const Hammer: React.FC = () => {
+    const cursorRef = useRef<HTMLDivElement | null>(null);
+    const clickRef = useRef<HTMLDivElement | null>(null);
+    const audioRef = useRef<HTMLAudioElement>(new Audio(clickSound));
+    const [isPlaying, setIsPlaying] = useState<boolean>(false);
+    const hammerImageRef = useRef<JSX.Element | null>(null);
 
     useEffect(() => {
         const cursor = cursorRef.current;
@@ -17,13 +18,15 @@ const Hammer = () => {
 
         if (!cursor || !clicked) return;
 
-        let animationFrameId;
+        let animationFrameId: number;
 
-        const handleMouseMove = (e) => {
+        const handleMouseMove = (e: MouseEvent) => {
             cancelAnimationFrame(animationFrameId);
             animationFrameId = requestAnimationFrame(() => {
-                cursor.style.top = `${e.pageY}px`;
-                cursor.style.left = `${e.pageX}px`;
+                if (cursor) {
+                    cursor.style.top = `${e.pageY}px`;
+                    cursor.style.left = `${e.pageX}px`;
+                }
             });
         };
 
@@ -43,7 +46,6 @@ const Hammer = () => {
             }, 100);
         };
 
-        
         window.addEventListener('mousemove', handleMouseMove, { passive: true });
         window.addEventListener('click', handleClick);
 
@@ -54,17 +56,16 @@ const Hammer = () => {
         };
     }, [isPlaying]);
 
-    
     if (!hammerImageRef.current) {
         hammerImageRef.current = (
-            <img  src={hammer} alt="hammer" />
+            <img src={hammer} alt="hammer" />
         );
     }
 
     return (
         <div ref={cursorRef} className={hammercss.cursor}>
             <div ref={clickRef} className={hammercss.hammerContainer}>
-           {hammerImageRef.current}
+                {hammerImageRef.current}
             </div>
         </div>
     );
