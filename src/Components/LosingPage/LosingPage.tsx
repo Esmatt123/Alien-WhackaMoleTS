@@ -1,4 +1,4 @@
-import { Dispatch, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./LosingPage.module.css";
 import goBackMenu from "../../assets/icons/Go-back-menu.svg";
 import astronautFlying from "../../assets/images/austronaut-levitating.svg";
