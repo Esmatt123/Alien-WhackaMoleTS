@@ -1,3 +1,4 @@
+import React from 'react'
 import {
   BrowserRouter as Router,
   Routes,
@@ -16,13 +17,13 @@ import WinPage from "./Components/winPage/winPage";
 
 import TutorialScreen from './Components/tutorialScreen/tutorialScreen';
 
-function App() {
+function App(): React.JSX.Element {
   return (	
     <Router>
       <div className="container sky-background">
         <Routes>
           <Route path="/levelone" element={<LevelOne />} />
-          <Route path="/losingPage" element={<LosingPage />} />
+          <Route path="/losingPage" element={<LosingPage score={0} />} />
           <Route path="/winPage" element={<WinPage />} />
           <Route path="/" element={<Root />} />
           <Route path='/tutorial' element={<TutorialScreen />} />

@@ -1,10 +1,11 @@
+import React from 'react'
 import './tutorialScreen.css'
 import MainButton  from "../mainButton/mainButton"
 import UseLink from "../linksDelay/linksDelay";
 
 
-const TutorialScreen = () => {
-    const nameBtn = 'Play';
+const TutorialScreen = (): React.JSX.Element => {
+    const nameBtn: string = 'Play';
     return (
        <div className="container-tutorial">
 

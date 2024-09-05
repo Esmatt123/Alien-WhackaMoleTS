@@ -1,3 +1,4 @@
+import React from 'react'
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import styles from "./winPage.module.css";
@@ -5,17 +6,22 @@ import goBackMenu from "../../assets/icons/Go-back-menu.svg";
 import astronautWon from "../../assets/images/Austonaut-won.svg";
 import crowdCheer from "../../../public/music/crowd-cheer.mp3";
 
-export default function WinningPage() {
-  const location = useLocation();
-  const navigate = useNavigate();
-  const score = location.state?.score || 0;
+export default function WinningPage(): React.JSX.Element {
+  
+  type LocationType = {
+    score?: number;
+  };
 
-  useEffect(() => {
+  const location = useLocation<LocationType>();
+  const navigate = useNavigate();
+  const score: number = location.state?.score || 0;
+
+  useEffect((): void => {
     const audio = new Audio(crowdCheer);
     audio.play();
   }, []);
 
-  const handleGoBack = () => {
+  const handleGoBack = (): void => {
     navigate("/levelone");
   };
 

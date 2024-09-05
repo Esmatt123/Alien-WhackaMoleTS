@@ -1,10 +1,11 @@
+import React from 'react'
 import logo from "../assets/images/FirstPageAlienLOGO.svg"
 import MainButton  from "./mainButton/mainButton"
 import UseLink from "./linksDelay/linksDelay";
 
-export default function Root() {
+export default function Root(): React.JSX.Element {
 
-	const nameBtn = 'Start';
+	const nameBtn: string = 'Start';
 	return (
 		<>
 			<div className="content">
