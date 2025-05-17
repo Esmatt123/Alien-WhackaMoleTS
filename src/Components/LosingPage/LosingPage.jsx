@@ -25,7 +25,7 @@ export default function LosingPage({score}) {
 
   
   const handleGoBack = () => {
-    window.location.href = "/levelOne";
+    window.location.href = "/levelone";
     setShowLevelOne(true);
   };
 
