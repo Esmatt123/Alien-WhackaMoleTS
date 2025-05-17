@@ -32,7 +32,7 @@ export default function LosingPage({score}: Props): React.JSX.Element {
 
   
   const handleGoBack = (): void => {
-    window.location.href = "/levelOne";
+    window.location.href = "/levelone";
     setShowLevelOne(true);
   };
 
