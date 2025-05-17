@@ -34,7 +34,7 @@ export default function LosingPage({score}: Props): React.JSX.Element {
 
   
   const handleGoBack = (): void => {
-    navigate("/levelone");
+    navigate("/");
   };
 
   return (
@@ -64,7 +64,7 @@ export default function LosingPage({score}: Props): React.JSX.Element {
             <img src={strongAlien} alt="Picture of Strong alien on moon" />
           </div>
         </div>
-      )}
+      )
     </>
   );
 }
