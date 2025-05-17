@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import styles from "./LosingPage.module.css";
-import goBackMenu from "../../assets/icons/Go-back-menu.svg";
-import astronautFlying from "../../assets/images/austronaut-levitating.svg";
-import strongAlien from "../../assets/images/Strong-alien-moon.svg";
+import goBackMenu from "../../../public/assets/icons/Go-back-menu.svg"
+import astronautFlying from "../../../public/assets/images/austronaut-levitating.svg";
+import strongAlien from "../../../public/assets/images/Strong-alien-moon.svg";
 import { useNavigate } from "react-router-dom";
 
 
