@@ -32,15 +32,11 @@ export default function LosingPage({score}: Props): React.JSX.Element {
 
   
   const handleGoBack = (): void => {
-    window.location.href = "/levelone";
-    setShowLevelOne(true);
+    navigate("/levelone");
   };
 
   return (
     <>
-      {showLevelOne ? (
-        <LevelOne />
-      ) : (
         <div className={styles.loosingPageContainer}>
           <div className={styles.topDiv}>
             <div className={styles.goBack} onClick={handleGoBack}>
