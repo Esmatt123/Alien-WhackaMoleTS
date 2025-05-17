@@ -1,14 +1,18 @@
 import { useEffect, useState } from "react";
 import styles from "./LosingPage.module.css";
-import goBackMenu from "../../../public/assets/icons/Go-back-menu.svg";
-import astronautFlying from "../../../public/assets/images/austronaut-levitating.svg";
-import strongAlien from "../../../public/assets/images/Strong-alien-moon.svg";
-import LevelOne from "../LevelOne/LevelOne"; // Import LevelOne component
+import goBackMenu from "../../assets/icons/Go-back-menu.svg";
+import astronautFlying from "../../assets/images/austronaut-levitating.svg";
+import strongAlien from "../../assets/images/Strong-alien-moon.svg";
+import { useNavigate } from "react-router-dom";
+
+
+
 
 // eslint-disable-next-line react/prop-types
-export default function LosingPage({score}) {
-  const [confirmation, setConfirmation] = useState(false);
+export default function LosingPage({score}){
+  const [confirmation, setConfirmation]  = useState(false);
   const [showLevelOne, setShowLevelOne] = useState(false); // State to toggle between LoosingPage and LevelOne
+  const navigate = useNavigate();
   
   
 
@@ -24,16 +28,12 @@ export default function LosingPage({score}) {
   }, [confirmation]);
 
   
-  const handleGoBack = () => {
-    window.location.href = "/levelone";
-    setShowLevelOne(true);
+  const handleGoBack = ()=> {
+    navigate("/");
   };
 
   return (
     <>
-      {showLevelOne ? (
-        <LevelOne />
-      ) : (
         <div className={styles.loosingPageContainer}>
           <div className={styles.topDiv}>
             <div className={styles.goBack} onClick={handleGoBack}>
@@ -59,7 +59,7 @@ export default function LosingPage({score}) {
             <img src={strongAlien} alt="Picture of Strong alien on moon" />
           </div>
         </div>
-      )}
+      )
     </>
   );
 }
