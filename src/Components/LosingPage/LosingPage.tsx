@@ -5,6 +5,7 @@ import astronautFlying from "../../assets/images/austronaut-levitating.svg";
 import strongAlien from "../../assets/images/Strong-alien-moon.svg";
 import LevelOne from "../LevelOne/LevelOne"; // Import LevelOne component
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   score: number
@@ -16,6 +17,7 @@ interface Props {
 export default function LosingPage({score}: Props): React.JSX.Element {
   const [confirmation, setConfirmation]  = useState(false);
   const [showLevelOne, setShowLevelOne] = useState(false); // State to toggle between LoosingPage and LevelOne
+  const navigate = useNavigate();
   
   
 
